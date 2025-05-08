@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Petgram</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>🐾 Petslove</h2>
+      <div class="profile">
+
+        <!-- <img src="https://placekitten.com/80/80" alt="User" /> -->
+
+        <span>Usuario</span>
+      </div>
+      <nav>
+        <ul>
+          <li><button>pagina inicial</button></li>
+          <li><button>Explorar</button></li>
+          <li><button>Pesquisar</button></li>
+          <li><button>Mensagens</button></li>
+          <li><button>Notificações</button></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <section class="stories">
+
+        <!-- Stories simulados -->
+        <div class="story add">+</div>
+        <div class="story"><img src="https://placekitten.com/100/100" /></div>
+
+      </section>
+
+      <section class="post-form">
+
+        <input type="text" id="nomePet" placeholder="Nome do pet" />
+        <input type="file" id="fotoPet" accept="image/*" />
+
+        <select id="privacidade">
+
+          <option value="publico">Público</option>
+          <option value="amigos">Apenas amigos</option>
+
+        </select>
+
+        <button onclick="postarFoto()">Postar</button>
+
+      </section>
+
+      <section id="feed" class="feed"></section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
