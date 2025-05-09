@@ -8,50 +8,66 @@
 </head>
 <body>
   <div class="container">
+
+    <!-- Sidebar lateral -->
     <aside class="sidebar">
-      <h2>🐾 Petslove</h2>
-      <div class="profile">
+        <a href="#" class="logo">
+          🐾 <span>Petslove</span>
+        </a>
+      
+        <div class="profile">
+          <!-- <img src="https://placekitten.com/80/80" alt="User" /> -->
+          <span>Usuário</span>
+        </div>
+      
+        <nav>
+          <ul>
+            <li><button onclick="navegar('home')">🏠 Página Inicial</button></li>
+            <li><button onclick="navegar('explorar')">🔍 Explorar</button></li>
+            <li><button onclick="navegar('pesquisar')">🔎 Pesquisar</button></li>
+            <li><button onclick="navegar('mensagens')">💬 Mensagens</button></li>
+            <li><button onclick="navegar('notificacoes')">🔔 Notificações</button></li>
+          </ul>
+        </nav>
+      </aside>
+      
 
-        <!-- <img src="https://placekitten.com/80/80" alt="User" /> -->
-
-        <span>Usuario</span>
-      </div>
-      <nav>
-        <ul>
-          <li><button>pagina inicial</button></li>
-          <li><button>Explorar</button></li>
-          <li><button>Pesquisar</button></li>
-          <li><button>Mensagens</button></li>
-          <li><button>Notificações</button></li>
-        </ul>
-      </nav>
-    </aside>
-
+    <!-- Conteúdo principal -->
     <main class="main">
+
+      <!-- Seção de Stories -->
       <section class="stories">
+        <!-- Botão de adicionar story -->
+        <div class="story add" onclick="document.getElementById('fotoStory').click()">+</div>
 
-        <!-- Stories simulados -->
-        <div class="story add">+</div>
-        <div class="story"><img src="https://placekitten.com/100/100" /></div>
+        <!-- Input invisível para selecionar a foto do story -->
+        <input type="file" id="fotoStory" accept="image/*" style="display:none" onchange="adicionarStory()">
 
+        <!-- Container onde as stories serão renderizadas -->
+        <div id="storiesContainer" style="display: flex; gap: 10px;"></div>
       </section>
 
-      <section class="post-form">
+      <!-- Modal (janela) que abre quando clicamos em uma story -->
+      <div id="storyModal" class="modal" style="display:none">
+        <span class="close" onclick="fecharStory()">&times;</span>
+        <img id="storyImage" src="">
+      </div>
 
+      <!-- Seção de Postagem -->
+      <section class="post-form">
         <input type="text" id="nomePet" placeholder="Nome do pet" />
         <input type="file" id="fotoPet" accept="image/*" />
 
         <select id="privacidade">
-
           <option value="publico">Público</option>
           <option value="amigos">Apenas amigos</option>
-
         </select>
 
         <button onclick="postarFoto()">Postar</button>
-
       </section>
 
+      
+      <!-- Feed de posts -->
       <section id="feed" class="feed"></section>
 
     </main>
